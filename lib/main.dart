@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
       title: 'Atlas Géographique',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF212121),
+          brightness: Brightness.light,
+        ),
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),

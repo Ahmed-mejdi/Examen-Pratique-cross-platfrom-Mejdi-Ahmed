@@ -7,10 +7,14 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('À propos'),
+        title: const Text(
+          'À propos',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.teal,
-        elevation: 2,
+        backgroundColor: const Color(0xFF212121),
+        foregroundColor: Colors.white,
+        elevation: 0,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -18,7 +22,7 @@ class AboutPage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.teal.shade50,
+              Colors.grey.shade100,
               Colors.white,
             ],
           ),
@@ -32,21 +36,28 @@ class AboutPage extends StatelessWidget {
               
               // Icône de l'application
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: Colors.teal,
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF212121),
+                      Color(0xFF424242),
+                    ],
+                  ),
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.teal.withValues(alpha: 0.3),
-                      blurRadius: 20,
+                      color: Colors.black.withValues(alpha: 0.2),
+                      blurRadius: 25,
                       spreadRadius: 5,
                     ),
                   ],
                 ),
                 child: const Icon(
                   Icons.public,
-                  size: 80,
+                  size: 90,
                   color: Colors.white,
                 ),
               ),
@@ -56,9 +67,10 @@ class AboutPage extends StatelessWidget {
               const Text(
                 'Atlas Géographique',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Colors.teal,
+                  color: Color(0xFF212121),
+                  letterSpacing: 0.5,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -83,12 +95,12 @@ class AboutPage extends StatelessWidget {
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         'Description',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.teal,
+                          color: Color(0xFF212121),
                         ),
                       ),
                       SizedBox(height: 15),
@@ -121,9 +133,9 @@ class AboutPage extends StatelessWidget {
                       const Text(
                         'Fonctionnalités',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.teal,
+                          color: Color(0xFF212121),
                         ),
                       ),
                       const SizedBox(height: 15),
@@ -162,9 +174,9 @@ class AboutPage extends StatelessWidget {
                       const Text(
                         'Développé par',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.teal,
+                          color: Color(0xFF212121),
                         ),
                       ),
                       const SizedBox(height: 15),
@@ -213,8 +225,8 @@ class AboutPage extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: Colors.teal,
-            size: 24,
+            color: const Color(0xFF212121),
+            size: 26,
           ),
           const SizedBox(width: 15),
           Expanded(

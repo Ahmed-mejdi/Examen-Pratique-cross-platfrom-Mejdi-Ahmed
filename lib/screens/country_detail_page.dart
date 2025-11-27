@@ -10,10 +10,14 @@ class CountryDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(country.nom),
+        title: Text(
+          country.nom,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.teal,
-        elevation: 2,
+        backgroundColor: const Color(0xFF212121),
+        foregroundColor: Colors.white,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -58,9 +62,10 @@ class CountryDetailPage extends StatelessWidget {
                     child: Text(
                       country.nom,
                       style: const TextStyle(
-                        fontSize: 32,
+                        fontSize: 34,
                         fontWeight: FontWeight.bold,
-                        color: Colors.teal,
+                        color: Color(0xFF212121),
+                        letterSpacing: 0.5,
                       ),
                     ),
                   ),
@@ -107,16 +112,16 @@ class CountryDetailPage extends StatelessWidget {
                       icon: const Icon(Icons.arrow_back),
                       label: const Text('Retour à la liste'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.teal,
+                        backgroundColor: const Color(0xFF212121),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 30,
-                          vertical: 15,
+                          horizontal: 40,
+                          vertical: 16,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        elevation: 5,
+                        elevation: 4,
                       ),
                     ),
                   ),
@@ -146,13 +151,17 @@ class CountryDetailPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.teal.shade50,
-                borderRadius: BorderRadius.circular(10),
+                color: const Color(0xFF212121).withValues(alpha: 0.05),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: const Color(0xFF212121).withValues(alpha: 0.1),
+                  width: 1,
+                ),
               ),
               child: Icon(
                 icon,
                 size: 32,
-                color: Colors.teal,
+                color: const Color(0xFF212121),
               ),
             ),
             const SizedBox(width: 16),

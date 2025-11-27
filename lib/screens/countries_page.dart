@@ -26,10 +26,14 @@ class _CountriesPageState extends State<CountriesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Liste des Pays'),
+        title: const Text(
+          'Liste des Pays',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.teal,
-        elevation: 2,
+        backgroundColor: const Color(0xFF212121),
+        foregroundColor: Colors.white,
+        elevation: 0,
         leading: Builder(
           builder: (context) => IconButton(
             icon: const Icon(Icons.menu),
@@ -43,40 +47,47 @@ class _CountriesPageState extends State<CountriesPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.teal,
-                    Colors.teal.shade300,
+                    Color(0xFF212121),
+                    Color(0xFF424242),
                   ],
                 ),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.public,
-                    size: 80,
+                    size: 70,
                     color: Colors.white,
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
+                  SizedBox(height: 15),
+                  Text(
                     'Atlas Géographique',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home, color: Colors.teal),
-              title: const Text('Accueil'),
+              leading: const Icon(Icons.home, color: Color(0xFF212121)),
+              title: const Text(
+                'Accueil',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              trailing: Icon(Icons.chevron_right, color: Colors.grey.shade300),
               onTap: () {
                 Navigator.pop(context); // Ferme le drawer
                 Navigator.pushReplacement(
@@ -88,8 +99,15 @@ class _CountriesPageState extends State<CountriesPage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.info, color: Colors.teal),
-              title: const Text('À propos'),
+              leading: const Icon(Icons.info_outline, color: Color(0xFF424242)),
+              title: const Text(
+                'À propos',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              trailing: Icon(Icons.chevron_right, color: Colors.grey.shade300),
               onTap: () {
                 Navigator.pop(context); // Ferme le drawer
                 Navigator.push(
@@ -102,9 +120,16 @@ class _CountriesPageState extends State<CountriesPage> {
             ),
             const Divider(),
             ListTile(
-              leading: const Icon(Icons.exit_to_app, color: Colors.red),
-              title: const Text('Quitter'),
+              leading: const Icon(Icons.exit_to_app, color: Color(0xFFE53935)),
+              title: const Text(
+                'Quitter',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
               onTap: () {
+                Navigator.pop(context); // Ferme le drawer d'abord
                 _showExitDialog(context);
               },
             ),
@@ -117,7 +142,7 @@ class _CountriesPageState extends State<CountriesPage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.teal.shade50,
+              Colors.grey.shade50,
               Colors.white,
             ],
           ),
@@ -129,36 +154,53 @@ class _CountriesPageState extends State<CountriesPage> {
             final country = countries[index];
             return Card(
               margin: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 6,
+                horizontal: 16,
+                vertical: 8,
               ),
-              elevation: 3,
+              elevation: 2,
+              shadowColor: Colors.black.withValues(alpha: 0.1),
+              color: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
-                  vertical: 8,
+                  vertical: 12,
                 ),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    country.flagAsset,
-                    width: 60,
-                    height: 40,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        width: 60,
-                        height: 40,
-                        color: Colors.grey.shade300,
-                        child: const Icon(
-                          Icons.flag,
-                          color: Colors.grey,
-                        ),
-                      );
-                    },
+                leading: Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.08),
+                        blurRadius: 8,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(
+                      country.flagAsset,
+                      width: 56,
+                      height: 56,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          width: 56,
+                          height: 56,
+                          color: Colors.grey.shade200,
+                          child: Icon(
+                            Icons.flag,
+                            color: Colors.grey.shade400,
+                            size: 28,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 title: Text(
@@ -166,17 +208,25 @@ class _CountriesPageState extends State<CountriesPage> {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    color: Color(0xFF212121),
+                    letterSpacing: 0.2,
                   ),
                 ),
-                subtitle: Text(
-                  country.capitale,
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                  ),
-                ),
+                subtitle: country.capitale.isNotEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          country.capitale,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                      )
+                    : null,
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.teal,
+                  color: Color(0xFF212121),
                   size: 18,
                 ),
                 onTap: () {
@@ -198,20 +248,32 @@ class _CountriesPageState extends State<CountriesPage> {
   void _showExitDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (BuildContext dialogContext) {
         return AlertDialog(
           title: const Text('Quitter l\'application'),
           content: const Text('Voulez-vous vraiment quitter l\'application ?'),
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(dialogContext).pop();
               },
               child: const Text('Annuler'),
             ),
             TextButton(
               onPressed: () {
-                SystemNavigator.pop();
+                Navigator.of(dialogContext).pop(); // Ferme le dialogue
+                // Sur web: retourne à la page d'accueil
+                // Sur mobile: quitte l'application
+                if (Theme.of(context).platform == TargetPlatform.android ||
+                    Theme.of(context).platform == TargetPlatform.iOS) {
+                  SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                } else {
+                  // Pour le web, retourne à la page d'accueil
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => const WelcomePage()),
+                    (route) => false,
+                  );
+                }
               },
               child: const Text(
                 'Quitter',
