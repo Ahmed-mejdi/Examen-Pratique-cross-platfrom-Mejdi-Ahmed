@@ -1,4 +1,4 @@
-<img width="662" height="990" alt="image" src="https://github.com/user-attachments/assets/99f23339-1fd4-4291-b19e-ac0211dc1b76" /># Atlas Géographique - Ahmed Mejdi
+# Atlas Géographique - Ahmed Mejdi
 
 ## 📱 Description
 
