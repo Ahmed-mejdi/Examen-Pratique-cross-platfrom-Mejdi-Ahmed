@@ -152,6 +152,7 @@ flutter build ios
 <img width="672" height="987" alt="image" src="https://github.com/user-attachments/assets/5a7c55ae-814a-4e5e-aa26-2a1ef87279fc" />
 <img width="671" height="1002" alt="image" src="https://github.com/user-attachments/assets/62be37a7-8125-4008-929a-387bd35db38f" />
 <img width="666" height="997" alt="image" src="https://github.com/user-attachments/assets/27a0d82d-1eee-4be6-b63f-7e6dec7fad69" />
+<img width="670" height="993" alt="image" src="https://github.com/user-attachments/assets/7ea72cd6-3598-4e08-a5f8-bf79c4adbd88" />
 <img width="668" height="986" alt="image" src="https://github.com/user-attachments/assets/97cd05eb-24d4-4042-95fb-2f033b3241fa" />
 <img width="670" height="992" alt="image" src="https://github.com/user-attachments/assets/36fdf1f6-e844-4efc-86fb-220ee43e4c10" />
 
